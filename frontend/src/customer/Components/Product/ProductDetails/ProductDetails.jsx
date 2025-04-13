@@ -382,16 +382,20 @@ export default function ProductDetails() {
         </section>
 
         {/* similer product */}
-        <section className=" pt-10">
-          <h1 className="py-5 text-xl font-bold">Similar Products</h1>
-          <div className="flex flex-wrap space-y-5">
-            {haircare.map((item) => (
-               <div key={item.id}>
-               <HomeProductCard product={item} />
-             </div>
-            ))}
+        <section className="pt-10">
+      <h1 className="py-5 text-xl font-bold">Similar Products</h1>
+      <div className="flex flex-wrap space-y-5">
+        {haircare.map((product) => (
+          <div
+            key={product.id || product._id}
+            onClick={() => navigate(`/product/${product?.id || product?._id}`)}
+            className="cursor-pointer"
+          >
+            <HomeProductCard product={product} />
           </div>
-        </section>
+        ))}
+      </div>
+    </section>
       </div>
     </div>
   );

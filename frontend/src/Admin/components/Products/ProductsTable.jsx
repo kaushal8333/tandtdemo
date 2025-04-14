@@ -59,17 +59,17 @@ import {
       const data = {
         category: category || "",
         colors: [],
-        sizes: [],
-        minPrice: 0,
-        maxPrice: 100000,
-        minDiscount: 0,
-        sort: sort || "price_low",
-        pageNumber: page || 0,
-        pageSize: 10,
-        stock: availability,
+        // sizes: [],
+        // minPrice: 0,
+        // maxPrice: 100000,
+        // minDiscount: 0,
+        // sort: sort || "price_low",
+        // pageNumber: page || 0,
+        // pageSize: 10,
+        // stock: availability,
       };
       dispatch(findProducts(data));
-    }, [availability, category, sort, page, customersProduct.deleteProduct]);
+    }, [ category,  customersProduct.deleteProduct]);
   
     const handleFilterChange = (e, sectionId) => {
       console.log(e.target.value, sectionId);
@@ -83,6 +83,7 @@ import {
       console.log("delete product ", productId);
       dispatch(deleteProduct(productId));
     };
+  console.log("admin products",customersProduct);
   
     return (
       <Box width={"100%"}>
@@ -174,7 +175,7 @@ import {
                 </TableRow>
               </TableHead>
               <TableBody>
-                {customersProduct?.products?.content?.map((item) => (
+                {customersProduct?.products?.map((item) => (
                   <TableRow
                     hover
                     key={item.name}
@@ -182,7 +183,7 @@ import {
                   >
                     <TableCell>
                       {" "}
-                      <Avatar alt={item.titel} src={item.imageUrl} />{" "}
+                      <Avatar alt={item.title} src={item.imageUrl} />{" "}
                     </TableCell>
   
                     <TableCell
@@ -224,7 +225,7 @@ import {
             </Table>
           </TableContainer>
         </Card>
-        <Card className="mt-2 border">
+        {/* <Card className="mt-2 border">
           <div className="mx-auto px-4 py-5 flex justify-center shadow-lg rounded-md">
             <Pagination
               count={customersProduct.products?.totalPages}
@@ -234,7 +235,7 @@ import {
               // value={page}
             />
           </div>
-        </Card>
+        </Card> */}
       </Box>
     );
   };

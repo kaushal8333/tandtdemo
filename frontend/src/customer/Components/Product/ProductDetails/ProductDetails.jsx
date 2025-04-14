@@ -6,7 +6,7 @@ import { Box, Button, Grid, LinearProgress, Rating } from "@mui/material";
 import HomeProductCard from "../../Home/HomeProductCard";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { findProductById } from "../../../../Redux/Customers/Product/Action";
+import { findProductById, findProducts } from "../../../../Redux/Customers/Product/Action";
 import { addItemToCart } from "../../../../Redux/Customers/Cart/Action";
 import { getAllRatings, getAllReviews } from "../../../../Redux/Customers/Review/Action";
 import cleanser from "../../../../Data/Skincare/cleanser";
@@ -65,7 +65,7 @@ function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
 }
 
-export default function ProductDetails() {
+export default function ProductDetails({ section,category }) {
   const [selectedSize, setSelectedSize] = useState();
   const [activeImage, setActiveImage] = useState(null);
   const navigate = useNavigate();
@@ -80,12 +80,27 @@ export default function ProductDetails() {
   };
 
   const { ratings, reviews } = useSelector((state) => state.review);
-
-
+  
   useEffect(() => {
     dispatch(getAllReviews(productId));
     dispatch(getAllRatings(productId));
   }, [dispatch, productId]);
+  
+  const { similarproducts } = useSelector(
+      (state) => state.customersProduct
+    );
+    useEffect(() => {
+      dispatch(
+        findProducts({
+          colors: "Transparent",
+          category:customersProduct.product?.category,
+          // add other filters as needed
+        })
+      );
+    }, []);
+  
+
+
   
 
   const handleSubmit = (e) => {
@@ -380,7 +395,8 @@ export default function ProductDetails() {
             </Grid>
           </div>
         </section>
-
+{                        console.log("similar product log",customersProduct)
+}                        
         {/* similer product */}
         <section className=" pt-10">
           <h1 className="py-5 text-xl font-bold">Similar Products</h1>

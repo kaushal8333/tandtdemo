@@ -12,7 +12,7 @@ const RecentOrders = () => {
        <CardHeader
           title='Recent Orders'
           sx={{ pt: 2, alignItems: 'center', '& .MuiCardHeader-action': { mt: 0.6 } }}
-          action={<Typography onClick={()=>navigate("/admin/products")} variant='caption' sx={{color:"blue",cursor:"pointer",paddingRight:".8rem"}}>View All</Typography>}
+          action={<Typography onClick={()=>navigate("/admin/orders")} variant='caption' sx={{color:"blue",cursor:"pointer",paddingRight:".8rem"}}>View All</Typography>}
           titleTypographyProps={{
             variant: 'h5',
             sx: { lineHeight: '1.6 !important', letterSpacing: '0.15px !important' }

@@ -175,6 +175,7 @@ import {
               </TableHead>
               <TableBody>
                 {customersProduct?.products?.content?.map((item) => (
+                 
                   <TableRow
                     hover
                     key={item.name}

@@ -16,7 +16,7 @@ import MailIcon from "@mui/icons-material/Mail";
 import ListItemIcon from "@mui/material/ListItemIcon";
 import { customTheme } from "./them/customeThem";
 import AdminNavbar from "./Navigation/AdminNavbar";
-import Dashboard from "./Views/Admin";
+import Dashboard from "./Views/Dashboard";
 import { Route, Routes, useNavigate } from "react-router-dom";
 import DemoAdmin from "./Views/DemoAdmin";
 import CreateProductForm from "./components/createProduct/CreateProductForm";

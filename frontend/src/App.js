@@ -23,7 +23,7 @@ function App() {
     <div className="">
       <Routes>
         <Route path="/*" element={<CustomerRoutes />} />
-       {/* {auth.user?.role==="ROLE_ADMIN" && <Route path="/admin/*" element={<AdminPannel />} />} */}
+       {auth.user?.role==="ROLE_ADMIN" && <Route path="/admin/*" element={<AdminPannel />} />}
       </Routes>
     </div>
   );
